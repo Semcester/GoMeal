@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
-
-
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +10,11 @@ body {
 }
 
 .main-container{
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+
+}
+.main-wrapper{
+  width: 76%;
+  padding: 56px 40px 0 40px;
 }

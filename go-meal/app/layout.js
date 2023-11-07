@@ -1,6 +1,7 @@
 
 import './globals.css'
 import SideBar from "@/components/sidebar";
+import RightsideBar from "@/components/rightsideBar";
 
 
 export const metadata = {
@@ -14,7 +15,10 @@ export default function RootLayout({ children }) {
     <body>
       <div className={'main-container'}>
         <SideBar/>
-        {children}
+        <div className={'main-wrapper'}>
+          {children}
+        </div>
+        <RightsideBar/>
       </div>
     </body>
     </html>

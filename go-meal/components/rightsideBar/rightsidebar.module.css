@@ -1,5 +1,5 @@
 .container{
-    width: 345px;
+    width: 15%;
     height: 100vh;
     background-color: #FFFFFF;
     padding-left: 45px;
@@ -9,7 +9,8 @@
     flex-direction: column;
     gap: 62px;
     align-items: center;
-
+    position:fixed;
+    right:0;
 }
 
 .container ul{
@@ -23,7 +24,6 @@
     cursor: pointer;
     padding:18px;
     border-radius: 15px;
-    width: 252px;
     color:#A098AE;
     display: flex;
     align-items: center;
@@ -41,5 +41,5 @@ li.active{
     color:white;
 }
 .icon{
-    color:#A098AE;
+    filter: inherit;
 }
