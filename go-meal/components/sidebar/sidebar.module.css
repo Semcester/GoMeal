@@ -1,0 +1,45 @@
+.container{
+    width: 345px;
+    height: 1626px;
+    background-color: #FFFFFF;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 62px;
+    align-items: center;
+}
+
+.container ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.container li{
+    cursor: pointer;
+    padding:18px;
+    border-radius: 15px;
+    width: 252px;
+    color:#A098AE;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 18px;
+}
+.active{
+    background-color:#F8B602;
+}
+.container li:hover{
+    background-color:#F8B602;
+    color:white;
+}
+.container li:hover .icons{
+    background-color:#F8B602;
+    color:white;
+}
+.icons:hover{
+    /*filter: brightness(0) invert(1);*/
+}
+.iconn{
+    fill: #F8B602;
+}
