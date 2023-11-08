@@ -12,9 +12,9 @@ body {
 .main-container{
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
-
 }
 .main-wrapper{
-  width: 76%;
+  width: 90%;
   padding: 56px 40px 0 40px;
+
 }

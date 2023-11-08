@@ -1,6 +1,9 @@
+'use client'
 import styles from "./category.module.css";
-import CategoryCard from "@/components/categoryCard";
-
+import CategoryCard from "@/components/category/categoryCard";
+import Image from "next/image";
+import Arrow from "@/public/assets/img/chevron-down.png";
+import {useState} from "react";
 
 
 const categories = [
@@ -10,26 +13,29 @@ const categories = [
     {id:4, img:'/assets/img/Chicken.png', label:'Chicken'},
     {id:5, img:'/assets/img/Fast.png', label:'Pizza'},
     {id:6, img:'/assets/img/Fish.png', label:'Seafood'},
+    {id:6, img:'/assets/img/Fish.png', label:'Seafood'},
+    {id:6, img:'/assets/img/Fish.png', label:'Seafood'},
 ]
 
-
-
 export default function Category() {
+
+    const [showAll, setShowAll] = useState(false);
+
+    const visibleElements = showAll ? categories : categories.slice(0, 6);
+
+
     return <div className={styles.container}>
         <div className={styles.content}>
             <h1>Category</h1>
-            <span>View all </span>
-
-
+            <div className={styles.view} onClick={() => setShowAll(true)}>
+                <span>View all </span>
+                <Image width={24} height={24} src={Arrow} alt={'Arrow'}/>
+            </div>
         </div>
         <div className={styles.wrapper}>
-            <CategoryCard image={categories[0].img} label={categories[0].label}/>
-            <CategoryCard image={categories[1].img} label={categories[1].label}/>
-            <CategoryCard image={categories[2].img} label={categories[2].label}/>
-            <CategoryCard image={categories[3].img} label={categories[3].label}/>
-            <CategoryCard image={categories[4].img} label={categories[4].label}/>
-            <CategoryCard image={categories[5].img} label={categories[5].label}/>
+            {visibleElements.map((category)=>{
+               return <CategoryCard image={category.img} label={category.label}/>
+            })}
         </div>
-
     </div>
 }

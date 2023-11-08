@@ -9,9 +9,12 @@ export default function RightsideBar(){
 
 
     return <div className={styles.container}>
-        <Image src={Logo} alt={'Logo'} />
-        <div >
-                <h1>Right Side</h1>
+        <div className={styles.wrapper}>
+
+            <Image src={Logo} alt={'Logo'} />
+            <div >
+                    <h1>Right Side</h1>
+            </div>
         </div>
     </div>
 }

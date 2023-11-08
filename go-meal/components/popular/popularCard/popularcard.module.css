@@ -1,0 +1,111 @@
+.container{
+    min-width: 250px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:#FFFFFF;
+    border-radius: 16px;
+    gap:10px;
+    color:#A098AE;
+    padding: 32px;
+}
+.loveIcon{
+    cursor:pointer;
+}
+.loveIcon:hover{
+    cursor:pointer;
+    fill:#EB5757;
+}
+.lovedIcon{
+    cursor:pointer;
+    transform: scale(1);
+    animation: pulse 1s;
+}
+.lovedIcon:hover{
+    cursor:pointer;
+    fill:#DBDBDB;
+}
+
+.wrapper{
+    padding:32px;
+}
+
+.info{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.labels{
+    width: 98px;
+    position: relative;
+    right: 33px;
+    background-color: #EB5757;
+    padding:10px;
+    color: #FFFFFF;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.infoWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.priceInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.priceInfo span{
+    color:#2E2E2E;
+    font-weight: 600;
+    font-size: 18px;
+}
+.priceInfo p{
+    color:#2E2E2E;
+    font-size: 24px;
+    font-weight: 600;
+}
+.priceInfo p span{
+    color:#F8B602;
+    font-size: 24px;
+    font-weight: 600;
+}
+.priceInfo button{
+    width: 48px;
+    height: 48px;
+    background-color:#F8B602;
+    border: none;
+    border-radius: 8px;
+    font-size: 36px;
+    color:#FFFFFF;
+    cursor:pointer;
+}
+.priceInfo button:hover{
+    box-shadow: #F8B602 0px 2px 8px 0px;
+}
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.35);
+
+    }
+
+    70% {
+        transform: scale(1);
+
+    }
+
+    100% {
+        transform: scale(0.95);
+
+    }
+}
