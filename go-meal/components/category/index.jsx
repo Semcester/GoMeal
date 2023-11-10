@@ -1,24 +1,17 @@
 "use client";
-import styles from "./category.module.css";
-import CategoryCard from "@/components/category/categoryCard";
-import Image from "next/image";
-import Arrow from "@/public/assets/img/chevron-down.png";
-import { useState } from "react";
-import { act } from "react-dom/test-utils";
 
-const categories = [
-  { id: 0, img: "/assets/img/all-food.png", label: "All Food" },
-  { id: 1, img: "/assets/img/Baked.png", label: "Bakery" },
-  { id: 2, img: "/assets/img/Burger.png", label: "Burger" },
-  { id: 3, img: "/assets/img/Coffee.png", label: "Beverage" },
-  { id: 4, img: "/assets/img/Chicken.png", label: "Chicken" },
-  { id: 5, img: "/assets/img/Fast.png", label: "Pizza" },
-  { id: 6, img: "/assets/img/Fish.png", label: "Seafood" },
-  { id: 7, img: "/assets/img/Fish.png", label: "Seafood" },
-  { id: 8, img: "/assets/img/Fish.png", label: "Seafood" },
-];
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import Image from "next/image";
+
+import styles from "./category.module.css";
+
+import CategoryCard from "@/components/category/categoryCard";
+import Arrow from "@/public/assets/img/chevron-down.png";
 
 export default function Category() {
+  const categories = useSelector((state) => state.category.data);
+
   const [showAll, setShowAll] = useState(false);
   const [activeCategoryID, setActiveCategoryID] = useState(null);
 
