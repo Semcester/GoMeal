@@ -1,5 +1,5 @@
 .container{
-    width: 160px;
+    width: 152px;
     height: 160px;
     display: flex;
     flex-direction: column;
@@ -15,4 +15,19 @@
 .container:hover{
     box-shadow: #F8B602 0px 2px 8px 0px;
     transition: 0.3s ease;
+}
+
+.activeContainer{
+    width: 152px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:#FFFFFF;
+    border-radius: 16px;
+    cursor: pointer;
+    gap:10px;
+    color:#A098AE;
+    box-shadow: #F8B602 0px 2px 8px 0px;
 }

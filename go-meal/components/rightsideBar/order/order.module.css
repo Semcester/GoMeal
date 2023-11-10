@@ -1,0 +1,35 @@
+.wrapper{
+   width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+}
+.orders{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.price{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+}
+.currency{
+    color:#F8B602;
+}
+.info span{
+    font-size: 14px;
+}
+.alignment{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.start{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}

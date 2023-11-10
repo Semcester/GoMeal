@@ -1,0 +1,63 @@
+.container{
+    background-color: #FFFFFF;
+    padding: 30px;
+}
+.totalContainer{
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+    align-items: end;
+}
+.couponInput{
+    width: 100%;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid  #F8B602;
+    padding: 5px 0 5px 10px;
+}
+.couponInput:focus{
+    outline: none;
+}
+.creditCard{
+    width: 50%;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid  #F8B602;
+    padding: 5px 0 5px 10px;
+}
+.form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.creditCardInputs{
+    width: 103%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+}
+.creditCardInputs:focus{
+    outline: none;
+}
+
+.creditCardInputs input::-webkit-outer-spin-button,
+.creditCardInputs input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.creditCardInputs input[type=number] {
+    -moz-appearance: textfield;
+}

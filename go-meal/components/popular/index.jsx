@@ -35,7 +35,7 @@ const popularFoods = [
     discount: "5%",
   },
   {
-    id: 1,
+    id: 4,
     img: "/assets/img/burger0.png",
     label: "Fish Burger",
     price: 5.59,
@@ -44,7 +44,7 @@ const popularFoods = [
     discount: "15%",
   },
   {
-    id: 2,
+    id: 5,
     img: "/assets/img/burger1.png",
     label: "Beef Burger",
     price: 6.09,
@@ -53,7 +53,7 @@ const popularFoods = [
     discount: "25%",
   },
   {
-    id: 3,
+    id: 6,
     img: "/assets/img/burger2.png",
     label: "Steak Burger",
     price: 11.5,
@@ -63,25 +63,30 @@ const popularFoods = [
   },
 ];
 
-export default function Popular() {
+export default function Popular({ showAllFavorite }) {
   const [showAll, setShowAll] = useState(false);
 
-  const visibleElements = showAll ? popularFoods : popularFoods.slice(0, 3);
+  let visibleElements = popularFoods;
+
+  if (!showAllFavorite)
+    visibleElements = showAll ? popularFoods : popularFoods.slice(0, 3);
 
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         <h1>Popular</h1>
         <div>
-          <div className={styles.view} onClick={() => setShowAll(true)}>
-            <span>View all </span>
-            <Image width={24} height={24} src={Arrow} alt={"Arrow"} />
-          </div>
+          {!showAllFavorite && (
+            <div className={styles.view} onClick={() => setShowAll(true)}>
+              <span>View all </span>
+              <Image width={24} height={24} src={Arrow} alt={"Arrow"} />
+            </div>
+          )}
         </div>
       </div>
       <div className={styles.wrapper}>
         {visibleElements.map((menu) => {
-          return <PopularCard item={menu} />;
+          return <PopularCard key={menu.id} item={menu} />;
         })}
       </div>
     </div>

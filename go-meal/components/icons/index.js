@@ -8,6 +8,10 @@ import RightArrow from "@/public/assets/icons/right-arrow.svg";
 import Love from "@/public/assets/icons/Love.svg";
 import LoveLiked from "@/public/assets/icons/Love-liked.svg";
 import GoTop from "@/public/assets/icons/go-top.svg";
+import Notification from "@/public/assets/icons/notification.svg";
+import Location from "@/public/assets/icons/Location.svg";
+import Coupon from "@/public/assets/icons/Coupon.svg";
+import AllFood from "@/public/assets/icons/all-food.svg";
 
 export {
   Home,
@@ -20,4 +24,8 @@ export {
   Love,
   LoveLiked,
   GoTop,
+  Notification,
+  Location,
+  Coupon,
+  AllFood,
 };

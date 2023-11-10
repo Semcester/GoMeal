@@ -1,0 +1,114 @@
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.bill{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.service, .total{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.totalText{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+}
+.service:first-child{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+}
+.price{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+}
+.currency{
+    color:#F8B602;
+}
+.line{
+    border-top: 1px solid #DBDBDB;
+}
+.actions{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.coupon{
+    height: 64px;
+    border-radius: 16px;
+    border: 1px solid  #F8B602;
+    background:  #F5F5F5;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.coupon:hover{
+    background: #facf72;
+    color: #FFFFFF;
+    box-shadow: #F8B602 0px 2px 2px 0px;
+    transition: 0.3s ease;
+}
+.checkout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    border: none;
+    border-radius: 16px;
+    background: #F8B602;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.checkout:hover{
+    background-color: #f5be2b;
+    box-shadow: #F8B602 0px 2px 2px 0px;
+    transition: 0.3s ease;
+}
+.couponInput{
+    width: 65%;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid  #F8B602;
+    padding: 5px 0 5px 10px;
+}
+.couponInput:focus{
+    outline: none;
+}
+.couponCode{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.couponCode button{
+    width: 80px;
+    height: 45px;
+    background-color: transparent;
+    border-radius: 8px;
+    border: 1px solid  #F8B602;
+    cursor: pointer;
+}
+.couponCode button:hover{
+    background-color: #F8B602;
+    color:#FFFFFF;
+}
+.discount:hover{
+    background-color: #f5be2b;
+    box-shadow: #F8B602 0px 2px 2px 0px;
+    transition: 0.3s ease;
+}

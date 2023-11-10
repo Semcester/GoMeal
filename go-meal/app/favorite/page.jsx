@@ -1,7 +1,9 @@
-export default function Sem() {
-    return (
-        <main>
-            <h1>Favorite</h1>
-        </main>
-    )
+import Popular from "@/components/popular";
+
+export default function Favorite() {
+  return (
+    <main>
+      <Popular showAllFavorite={true} />
+    </main>
+  );
 }

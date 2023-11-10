@@ -1,7 +1,9 @@
-export default function Sem() {
-    return (
-        <main>
-            <h1>Order History</h1>
-        </main>
-    )
+import OrderHistoryComponent from "@/components/orderHistory";
+
+export default function OrderHistory() {
+  return (
+    <main>
+      <OrderHistoryComponent />
+    </main>
+  );
 }

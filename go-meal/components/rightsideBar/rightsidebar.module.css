@@ -1,5 +1,6 @@
 .container{
-    min-width: 250px;
+    min-width: 315px;
+    min-height: 1600px;
     background-color: #FFFFFF;
     padding-left: 45px;
     padding-right: 45px;
@@ -9,9 +10,15 @@
     gap: 62px;
     align-items: center;
     right:0;
+
 }
 .wrapper{
+    width: 100%;
     position:sticky;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: baseline;
 }
 .container ul{
     list-style-type: none;

@@ -38,12 +38,18 @@
 }
 li.active{
     background-color:#F8B602;
-    color:white
+    color:white;
+    .icon{
+        color:white;
+    }
 }
 
 .container li:hover{
     background-color:#F8B602;
     color:white;
+    .icon{
+        color:white;
+    }
 }
 .icon{
     color:#A098AE;
