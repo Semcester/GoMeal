@@ -1,40 +1,12 @@
 "use client";
+import { useSelector } from "react-redux";
+import Image from "next/image";
 
 import styles from "./order.module.css";
 
-import Pizza from "@/public/assets/img/pizza-order.png";
-import Pizza1 from "@/public/assets/img/pizza1-order.png";
-import Burger from "@/public/assets/img/burder-order.png";
-import Image from "next/image";
-
-const orders = [
-  {
-    id: 1,
-    img: Pizza,
-    label: "Peperoni Pizza",
-    count: 1,
-    price: 5.59,
-    currency: "$",
-  },
-  {
-    id: 2,
-    img: Burger,
-    label: "Cheese Burger",
-    count: 1,
-    price: 5.59,
-    currency: "$",
-  },
-  {
-    id: 3,
-    img: Pizza1,
-    label: "Vegan Pizza",
-    count: 1,
-    price: 5.59,
-    currency: "$",
-  },
-];
-
 export default function OrderMenu() {
+  const orders = useSelector((state) => state.order.data);
+
   return (
     <div className={styles.wrapper}>
       <div>
