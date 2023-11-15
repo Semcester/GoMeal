@@ -6,6 +6,9 @@ import popularSlice from "@/redux/slices/popularSlice";
 import recentOrderSlice from "@/redux/slices/recentOrderSlice";
 import orderSlice from "@/redux/slices/orderSlice";
 import orderHistorySlice from "@/redux/slices/orderHistorySlice";
+import modalSlice from "@/redux/slices/modalSlice";
+import totalSlice from "@/redux/slices/totalSlice";
+import userSlice from "@/redux/slices/userSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +17,8 @@ export const store = configureStore({
     recentOrder: recentOrderSlice,
     order: orderSlice,
     orderHistory: orderHistorySlice,
+    modal: modalSlice,
+    total: totalSlice,
+    user: userSlice,
   },
 });

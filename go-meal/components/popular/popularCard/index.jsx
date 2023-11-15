@@ -1,4 +1,9 @@
 "use client";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addOrder } from "@/redux/slices/totalSlice";
+import { addOrderList } from "@/redux/slices/orderSlice";
+
 import styles from "./popularcard.module.css";
 import Image from "next/image";
 
@@ -6,12 +11,15 @@ import { Rating as ReactRating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 
 import { Love, LoveLiked } from "@/components/icons";
-import { useState } from "react";
 
 export default function PopularCard({ item }) {
+  const dispatch = useDispatch();
   const [rating, setRating] = useState(5);
   const [liked, setLiked] = useState(false);
-
+  const handleOrder = (item) => {
+    dispatch(addOrder(item));
+    dispatch(addOrderList(item));
+  };
   return (
     <div className={styles.container}>
       <div className={styles.info}>
@@ -39,7 +47,9 @@ export default function PopularCard({ item }) {
               {item.price}
             </p>
           </div>
-          <button className={styles.plusBtn}>+</button>
+          <button className={styles.plusBtn} onClick={() => handleOrder(item)}>
+            +
+          </button>
         </div>
       </div>
     </div>

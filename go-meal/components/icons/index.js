@@ -12,6 +12,7 @@ import Notification from "@/public/assets/icons/notification.svg";
 import Location from "@/public/assets/icons/Location.svg";
 import Coupon from "@/public/assets/icons/Coupon.svg";
 import AllFood from "@/public/assets/icons/all-food.svg";
+import Close from "@/public/assets/icons/close.svg";
 
 export {
   Home,
@@ -28,4 +29,5 @@ export {
   Location,
   Coupon,
   AllFood,
+  Close,
 };

@@ -3,7 +3,7 @@ import Popular from "@/components/popular";
 export default function Favorite() {
   return (
     <main>
-      <Popular showAllFavorite={true} />
+      <Popular showAllFavorite={false} />
     </main>
   );
 }

@@ -1,11 +1,14 @@
 .container{
     width: 100%;
+    height: 5%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 .actions{
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -18,4 +21,46 @@
 .notification, .settings{
     cursor: pointer;
     color:#2E2E2E;
+}
+.signup{
+    height: 50px;
+    width: 150px;
+    border: 1px solid  #F8B602;
+    border-radius: 8px;
+    background:  #F5F5F5;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+.signup:hover{
+    background: #facf72;
+    color: #FFFFFF;
+    box-shadow: #F8B602 0px 2px 2px 0px;
+    transition: 0.3s ease;
+}
+
+.login{
+    height: 50px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    background: #F8B602;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.login:hover{
+    background-color: #f5be2b;
+    box-shadow: #F8B602 0px 2px 2px 0px;
+    transition: 0.3s ease;
 }

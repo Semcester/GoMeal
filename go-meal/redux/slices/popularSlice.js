@@ -13,6 +13,7 @@ const popularSlice = createSlice({
         currency: "$",
         starCount: 2,
         discount: "15%",
+        quantity: 1,
       },
       {
         id: 2,
@@ -22,6 +23,7 @@ const popularSlice = createSlice({
         currency: "$",
         starCount: 4,
         discount: "25%",
+        quantity: 1,
       },
       {
         id: 3,
@@ -31,6 +33,7 @@ const popularSlice = createSlice({
         currency: "$",
         starCount: 3,
         discount: "5%",
+        quantity: 1,
       },
       {
         id: 4,
@@ -40,6 +43,7 @@ const popularSlice = createSlice({
         currency: "$",
         starCount: 2,
         discount: "15%",
+        quantity: 1,
       },
       {
         id: 5,
@@ -49,6 +53,7 @@ const popularSlice = createSlice({
         currency: "$",
         starCount: 4,
         discount: "25%",
+        quantity: 1,
       },
       {
         id: 6,
@@ -58,12 +63,20 @@ const popularSlice = createSlice({
         currency: "$",
         starCount: 3,
         discount: "5%",
+        quantity: 1,
       },
     ],
     isError: false,
   },
-  reducers: {},
+  reducers: {
+    addFavorite: (state, action) => {
+      state.data.push(action.payload);
+    },
+    removeFavorite: (state, action) => {
+      state.data.filter((item) => item.id === action.payload.id);
+    },
+  },
 });
 
-export const {} = popularSlice.actions;
+export const { addFavorite, removeFavorite } = popularSlice.actions;
 export default popularSlice.reducer;

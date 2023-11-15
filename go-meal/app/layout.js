@@ -1,29 +1,20 @@
-"use client";
 import "./globals.css";
-import SideBar from "@/components/sidebar";
-import RightsideBar from "@/components/rightsideBar";
-import GoTopComponent from "@/components/goTop";
-import Search from "@/components/Search/page";
-import Advertise from "@/components/advertise";
-import { Provider } from "react-redux";
-import { store } from "@/redux/store";
+
+import Layout from "@/components/Layout";
+
+export const metadata = {
+  title: "Feed Your Hungry",
+  description: "Everyday we make you happy meals",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <GoTopComponent />
-        <Provider store={store}>
-          <div className={"main-container"}>
-            <SideBar />
-            <div className={"main-wrapper"}>
-              <Search />
-              <Advertise />
-              {children}
-            </div>
-            <RightsideBar />
-          </div>
-        </Provider>
+        <Layout children={children} />
       </body>
     </html>
   );

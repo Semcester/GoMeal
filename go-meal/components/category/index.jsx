@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 
@@ -8,12 +8,18 @@ import styles from "./category.module.css";
 
 import CategoryCard from "@/components/category/categoryCard";
 import Arrow from "@/public/assets/img/chevron-down.png";
+import { categoryService } from "@/services";
 
 export default function Category() {
   const categories = useSelector((state) => state.category.data);
-
   const [showAll, setShowAll] = useState(false);
   const [activeCategoryID, setActiveCategoryID] = useState(null);
+
+  useEffect(() => {
+    categoryService.getCategory().then((resp) => {
+      console.log("Category API", resp);
+    });
+  }, []);
 
   const visibleElements = showAll ? categories : categories.slice(0, 6);
 

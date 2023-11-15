@@ -33,3 +33,11 @@
     align-items: center;
     gap: 5px;
 }
+.removeBtn{
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    border: 1px solid  #F8B602;
+    margin-left: 10px;
+    cursor:pointer;
+}
