@@ -1,9 +1,7 @@
 .container{
-    min-width: 250px;
+    min-width: 200px;
     background-color: #FFFFFF;
-    padding-left: 45px;
-    padding-right: 45px;
-    padding-top: 56px;
+    padding:56px 45px 0 45px;
     display: flex;
     flex-direction: column;
     gap: 62px;
@@ -28,12 +26,13 @@
     cursor: pointer;
     padding:18px;
     border-radius: 15px;
-    width: 252px;
+    min-width: 170px;
+    height: 30px;
     color:#A098AE;
     display: flex;
     align-items: center;
     gap: 24px;
-    font-size: 18px;
+    font-size: 16px;
 
 }
 li.active{

@@ -7,4 +7,5 @@ export async function Login(payload) {
     redirect: false,
     callbackUrl: `${window.location.origin}`,
   });
+
 }

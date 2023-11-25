@@ -1,0 +1,27 @@
+.container{
+    width: 100%;
+    background-color: #FFFFFF;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    right: 250px;
+    top: 49px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    z-index: 1;
+
+}
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.wrapper:hover{
+    background-color: #F8B602;
+    color:#FFFFFF;
+}

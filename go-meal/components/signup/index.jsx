@@ -6,6 +6,9 @@ import { useFormik } from "formik";
 import { SignupSchema } from "@/schemas";
 
 import styles from "./signup.module.css";
+import { SignUpUser } from "@/services/signupService";
+import { generateApiEndpoint } from "@/utils";
+import axios from "axios";
 
 export default function Signup() {
   const dispatch = useDispatch();
@@ -19,8 +22,9 @@ export default function Signup() {
       },
       validationSchema: SignupSchema,
       onSubmit: (values) => {
-        // Servis Çağırılacak
-
+        SignUpUser(values)
+          .then((resp) => console.log(resp.status))
+          .catch((err) => console.log(err));
         dispatch(closeModal());
       },
     });

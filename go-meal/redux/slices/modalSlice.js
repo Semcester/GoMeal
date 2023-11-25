@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const modalSlice = createSlice({
-  name: "category",
+  name: "modal",
   initialState: {
     isOpen: false,
     formName: null,

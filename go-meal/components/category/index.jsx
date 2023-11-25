@@ -1,27 +1,33 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Image from "next/image";
 
 import styles from "./category.module.css";
 
 import CategoryCard from "@/components/category/categoryCard";
 import Arrow from "@/public/assets/img/chevron-down.png";
-import { categoryService } from "@/services";
+import { fetchCategories } from "@/redux/slices/categorySlice";
+import CategorySkeleton from './Skeleton'
 
 export default function Category() {
-  const categories = useSelector((state) => state.category.data);
+  const dispatch = useDispatch()
+  const categories = useSelector((state) => state.category);
   const [showAll, setShowAll] = useState(false);
   const [activeCategoryID, setActiveCategoryID] = useState(null);
 
-  useEffect(() => {
-    categoryService.getCategory().then((resp) => {
-      console.log("Category API", resp);
-    });
-  }, []);
 
-  const visibleElements = showAll ? categories : categories.slice(0, 6);
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, []);
+  if(categories.isLoading){
+    return <div>Loading....</div>
+  }
+
+  let visibleElements=[]
+
+  if(!categories.isLoading) visibleElements = showAll ? categories.data : categories.data.slice(0, 8);
 
   return (
     <div className={styles.container}>
@@ -33,6 +39,7 @@ export default function Category() {
         </div>
       </div>
       <div className={styles.wrapper}>
+
         {visibleElements.map((category) => {
           return (
             <div
@@ -40,8 +47,9 @@ export default function Category() {
               key={category.id}
             >
               <CategoryCard
-                image={category.img}
-                label={category.label}
+                image={category.icon}
+                name={category.name}
+                isAll={category.isAll}
                 selected={activeCategoryID === category.id}
               />
             </div>

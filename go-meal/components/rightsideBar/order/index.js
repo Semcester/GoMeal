@@ -9,9 +9,7 @@ export default function OrderMenu() {
   const orders = useSelector((state) => state.order.data);
   const dispatch = useDispatch();
 
-  if (orders.length < 0) {
-    alert("ZERO");
-  }
+  const imgUrl = "https://static.smartlimon.com/" ;
 
   const handleRemove = (order) => {
     dispatch(removeOrder(order));
@@ -25,7 +23,7 @@ export default function OrderMenu() {
         return (
           <div className={styles.orders} key={order.id}>
             <div className={styles.start}>
-              <Image width={80} height={80} src={order.img} alt={order.id} />
+              <Image width={80} height={80} src={`${imgUrl} + ${order.img}`} alt={order.name} />
               <div className={styles.info}>
                 <h4>{order.label}</h4>
                 <span>x{order.quantity}</span>

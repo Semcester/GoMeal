@@ -1,6 +1,5 @@
 .container{
     width: 100%;
-    height: 5%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -12,7 +11,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:20px;
+    gap: 10px;
+
 }
 .avatar{
     border-radius: 16px;
@@ -63,4 +63,40 @@
     background-color: #f5be2b;
     box-shadow: #F8B602 0px 2px 2px 0px;
     transition: 0.3s ease;
+}
+.badge{
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    position: relative;
+    bottom: 10px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    background:#F8B602;
+    border-radius: 100%;
+}
+.userAction{
+    width: 130px;
+    padding: 10px;
+    position: absolute;
+    border-radius: 8px;
+    top: 60px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.userAction span{
+    width: 100%;
+    padding: 5px;
+    border-radius: 8px;
+}
+.userAction span:hover{
+    background-color: #F8B602;
+    color:#FFFFFF;
+    cursor: pointer;
 }

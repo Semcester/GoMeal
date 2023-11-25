@@ -1,6 +1,8 @@
 "use client";
 
-import { configureStore } from "@reduxjs/toolkit";
+import {configureStore} from "@reduxjs/toolkit";
+
+
 import categorySlice from "@/redux/slices/categorySlice";
 import popularSlice from "@/redux/slices/popularSlice";
 import recentOrderSlice from "@/redux/slices/recentOrderSlice";
@@ -9,6 +11,9 @@ import orderHistorySlice from "@/redux/slices/orderHistorySlice";
 import modalSlice from "@/redux/slices/modalSlice";
 import totalSlice from "@/redux/slices/totalSlice";
 import userSlice from "@/redux/slices/userSlice";
+import foodSlice from "@/redux/slices/foodSlice";
+
+
 
 export const store = configureStore({
   reducer: {
@@ -20,5 +25,7 @@ export const store = configureStore({
     modal: modalSlice,
     total: totalSlice,
     user: userSlice,
+    foods:foodSlice,
+
   },
 });

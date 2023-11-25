@@ -1,6 +1,6 @@
 .container{
-    width: 134px;
-    height: 125px;
+    width: 152px;
+    height: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +10,6 @@
     cursor: pointer;
     gap:10px;
     color:#A098AE;
-    font-size: 14px;
 
 }
 .container:hover{
@@ -19,8 +18,8 @@
 }
 
 .activeContainer{
-    width: 114px;
-    height: 114px;
+    width: 152px;
+    height: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;

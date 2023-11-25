@@ -7,6 +7,17 @@ const nextConfig = {
     });
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'static.smartlimon.com',
+        pathname: '/*',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
+
+

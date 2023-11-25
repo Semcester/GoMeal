@@ -20,7 +20,6 @@ export default function Total({ btnLabel }) {
       couponCode: "",
     },
     onSubmit: (values) => {
-      console.log(values);
       dispatch(addCoupon(values));
     },
   });

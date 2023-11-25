@@ -1,18 +1,30 @@
 "use client";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import Image from "next/image";
 
 import styles from "./popular.module.css";
 
 import RecentOrdersCard from "@/components/recent/recentCard/";
 import Arrow from "@/public/assets/img/chevron-down.png";
+import {fetchRecentOrders} from "@/redux/slices/recentOrderSlice";
 
 export default function RecentOrders() {
   const recentOrders = useSelector((state) => state.recentOrder.data);
+  const dispatch = useDispatch()
   const [showAll, setShowAll] = useState(false);
 
-  const visibleElements = showAll ? recentOrders : recentOrders.slice(0, 3);
+    useEffect(() => {
+        dispatch(fetchRecentOrders())
+    }, []);
+
+    if(recentOrders.isLoading){
+        return <div>Loading....</div>
+    }
+
+    let visibleElements=[]
+
+    if(!recentOrders.isLoading) visibleElements = showAll ? recentOrders : recentOrders.slice(0, 3);
 
   return (
     <div className={styles.container}>

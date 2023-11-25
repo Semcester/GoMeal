@@ -17,6 +17,7 @@ export default function Login() {
   const dispatch = useDispatch();
   const { data: session, status } = useSession();
   const [isLoading, setIsLoading] = useState(false);
+  const [errorLogin,setErrorLogin] = useState(false)
 
   const { values, errors, touched, handleChange, handleSubmit } = useFormik({
     initialValues: {
@@ -26,13 +27,17 @@ export default function Login() {
     validationSchema: loginSchema,
     onSubmit: (values) => {
       setIsLoading(true);
-      authService.Login(values);
-
-      if (session) {
-        dispatch(closeModal());
-        dispatch(userLogin(session));
-        setIsLoading(false);
-      }
+        setErrorLogin(false)
+     const response = authService.Login(values);
+    response.then((res)=> {
+        if(res.ok){
+            setIsLoading(false);
+            dispatch(closeModal());
+        }else{
+            setErrorLogin(true)
+            setIsLoading(false)
+        }
+    })
     },
   });
 
@@ -66,6 +71,7 @@ export default function Login() {
         <button type={"submit"} className={styles.login} disabled={isLoading}>
           Login
         </button>
+          {errorLogin && <span className={styles.error}>Username or password is wrong!</span>}
       </div>
     </form>
   );

@@ -11,6 +11,7 @@ import Advertise from "@/components/advertise";
 import RightsideBar from "@/components/rightsideBar";
 import Login from "@/components/login";
 import Modal from "@/components/Modal";
+import {SkeletonTheme} from "react-loading-skeleton";
 
 export default function Layout({ children }) {
   return (
@@ -19,6 +20,7 @@ export default function Layout({ children }) {
       <SessionProvider>
         <Provider store={store}>
           <div className={"main-container"}>
+            <SkeletonTheme baseColor="#202020" highlightColor="#444">
             <Modal />
             <SideBar />
             <div className={"main-wrapper"}>
@@ -28,6 +30,7 @@ export default function Layout({ children }) {
               {children}
             </div>
             <RightsideBar />
+            </SkeletonTheme>
           </div>
         </Provider>
       </SessionProvider>

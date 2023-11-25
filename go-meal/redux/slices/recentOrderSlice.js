@@ -1,68 +1,37 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {generateApiEndpoint} from "@/utils";
+import axios from "axios";
+
+
+export const fetchRecentOrders = createAsyncThunk("foods/fetchRecentOrders", async () => {
+  const token = ' xiNdzJ_RfGrIonfeTWHd1XBqXozTyIkV'
+  const url = generateApiEndpoint("items/ecommerce_order");
+  return await axios.get(url,{
+    headers: {Authorization: 'Bearer'+ token}
+  });
+});
 
 const recentOrderSlice = createSlice({
   name: "recentOrder",
   initialState: {
     isLoading: false,
-    data: [
-      {
-        id: 1,
-        img: "/assets/img/pizza-recent.png",
-        label: "Fish Pizza",
-        price: 5.59,
-        currency: "$",
-        location: "4.97 km",
-        time: "21 min",
-      },
-      {
-        id: 2,
-        img: "/assets/img/ramen-recent.png",
-        label: "Japon Ramen",
-        price: 6.09,
-        currency: "$",
-        location: "4.97 km",
-        time: "21 min",
-      },
-      {
-        id: 3,
-        img: "/assets/img/rice-recent.png",
-        label: "Fried Rice",
-        price: 11.5,
-        currency: "$",
-        location: "4.97 km",
-        time: "21 min",
-      },
-      {
-        id: 4,
-        img: "/assets/img/pizza-recent.png",
-        label: "Fish Pizza",
-        price: 5.59,
-        currency: "$",
-        location: "4.97 km",
-        time: "21 min",
-      },
-      {
-        id: 5,
-        img: "/assets/img/ramen-recent.png",
-        label: "Japon Ramen",
-        price: 6.09,
-        currency: "$",
-        location: "4.97 km",
-        time: "21 min",
-      },
-      {
-        id: 6,
-        img: "/assets/img/rice-recent.png",
-        label: "Fried Rice",
-        price: 11.5,
-        currency: "$",
-        location: "4.97 km",
-        time: "21 min",
-      },
-    ],
+    data: [],
     isError: false,
   },
   reducers: {},
+  extraReducers:(builder)=>{
+    builder.addCase(fetchRecentOrders.pending, (state)=>{
+      state.isLoading = true;
+    })
+    builder.addCase(fetchRecentOrders.fulfilled, (state,action)=>{
+      state.data = action.payload.data.data
+      state.isLoading = false;
+    })
+    builder.addCase(fetchRecentOrders.rejected,(state)=>{
+      state.isError = true;
+      state.isLoading = false;
+    })
+  }
 });
 
 export const {} = recentOrderSlice.actions;
