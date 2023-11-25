@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import { useFormik } from "formik";
 
 import { useDispatch } from "react-redux";
-import { closeModal } from "@/redux/slices/modalSlice";
+import { closeModal, openModal } from "@/redux/slices/modalSlice";
 import { userLogin } from "@/redux/slices/userSlice";
 
 import { loginSchema } from "@/schemas";
@@ -17,7 +17,7 @@ export default function Login() {
   const dispatch = useDispatch();
   const { data: session, status } = useSession();
   const [isLoading, setIsLoading] = useState(false);
-  const [errorLogin,setErrorLogin] = useState(false)
+  const [errorLogin, setErrorLogin] = useState(false);
 
   const { values, errors, touched, handleChange, handleSubmit } = useFormik({
     initialValues: {
@@ -27,19 +27,23 @@ export default function Login() {
     validationSchema: loginSchema,
     onSubmit: (values) => {
       setIsLoading(true);
-        setErrorLogin(false)
-     const response = authService.Login(values);
-    response.then((res)=> {
-        if(res.ok){
-            setIsLoading(false);
-            dispatch(closeModal());
-        }else{
-            setErrorLogin(true)
-            setIsLoading(false)
+      setErrorLogin(false);
+      const response = authService.Login(values);
+      response.then((res) => {
+        if (res.ok) {
+          setIsLoading(false);
+          dispatch(closeModal());
+        } else {
+          setErrorLogin(true);
+          setIsLoading(false);
         }
-    })
+      });
     },
   });
+
+  const handleForgot = () => {
+    dispatch(openModal({ formName: "forgotPassword" }));
+  };
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
@@ -48,7 +52,7 @@ export default function Login() {
         name={"email"}
         type="text"
         value={values.email}
-        placeholder="Kullanıcı adı"
+        placeholder="User name or Email"
         onChange={handleChange}
         className={errors?.email}
       />
@@ -59,7 +63,7 @@ export default function Login() {
         name={"password"}
         type="password"
         value={values.password}
-        placeholder="Şifrenizi girin"
+        placeholder="Password"
         onChange={handleChange}
         className={errors?.password}
       />
@@ -67,11 +71,13 @@ export default function Login() {
         <span className={styles.error}>{errors.password}</span>
       ) : null}
       <div className={styles.actions}>
-        <a>Forgot Password ?</a>
+        <a onClick={handleForgot}>Forgot Password ?</a>
         <button type={"submit"} className={styles.login} disabled={isLoading}>
           Login
         </button>
-          {errorLogin && <span className={styles.error}>Username or password is wrong!</span>}
+        {errorLogin && (
+          <span className={styles.error}>Username or password is wrong!</span>
+        )}
       </div>
     </form>
   );

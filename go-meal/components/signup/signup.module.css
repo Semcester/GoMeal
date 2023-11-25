@@ -41,6 +41,17 @@
     font-weight: bold;
     cursor: pointer;
 }
+.signup:hover{
+    background-color: #f5be2b;
+    box-shadow: #F8B602 0px 2px 2px 0px;
+    transition: 0.3s ease;
+}
+
+.signup:disabled{
+        background-color: #A098AE;
+        cursor: not-allowed;
+        opacity: 0.6;
+}
 .login:hover{
     background-color: #f5be2b;
     box-shadow: #F8B602 0px 2px 2px 0px;

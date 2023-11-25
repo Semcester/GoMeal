@@ -1,38 +1,34 @@
 "use client";
-import {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 
 import styles from "./food.module.css";
 
 import Arrow from "@/public/assets/img/chevron-down.png";
-import {fetchFoods} from "@/redux/slices/foodSlice";
+import { fetchFoods } from "@/redux/slices/foodSlice";
 import FoodCard from "@/components/foods/foodCard";
-import {ValidationError as food} from "yup";
-
+import { ValidationError as food } from "yup";
 
 export default function Foods({ showAllFavorite }) {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const foods = useSelector((state) => state.foods.data);
   const [showAll, setShowAll] = useState(false);
 
-    useEffect(() => {
-        dispatch(fetchFoods());
-    }, []);
+  useEffect(() => {
+    dispatch(fetchFoods());
+  }, []);
 
+  if (foods?.isLoading) {
+    return <div>Loading....</div>;
+  }
 
-    if(foods.isLoading){
-        return <div>Loading....</div>
-    }
+  let visibleElements = [];
 
-    let visibleElements=[]
-
-    if(!foods.isLoading) visibleElements = showAll ? foods : foods.slice(0, 4);
-
+  if (!foods?.isLoading) visibleElements = showAll ? foods : foods?.slice(0, 4);
 
   return (
     <div className={styles.container}>
-
       <div className={styles.content}>
         <h1>Foods</h1>
 
@@ -47,8 +43,8 @@ export default function Foods({ showAllFavorite }) {
       </div>
 
       <div className={styles.wrapper}>
-        {visibleElements.map((food) => {
-          return <FoodCard  isAll={food.isAll} key={food.id} item={food} />;
+        {visibleElements?.map((food) => {
+          return <FoodCard isAll={food.isAll} key={food.id} item={food} />;
         })}
       </div>
     </div>

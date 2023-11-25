@@ -8,10 +8,12 @@ import styles from "./modal.module.css";
 import { Close } from "@/components/icons";
 import LoginForm from "@/components/login";
 import SignupForm from "@/components/signup";
+import ForgotPassword from "@/components/forgotPassword";
 
 const formComponents = {
   login: LoginForm,
   signup: SignupForm,
+  forgotPassword: ForgotPassword,
 };
 
 export default function Modal() {

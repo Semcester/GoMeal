@@ -1,33 +1,31 @@
 "use client";
-import {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 
 import styles from "./popular.module.css";
 
 import PopularCard from "@/components/popular/popularCard";
 import Arrow from "@/public/assets/img/chevron-down.png";
-import {fetchPopular} from "@/redux/slices/popularSlice";
+import { fetchPopular } from "@/redux/slices/popularSlice";
 
 export default function Popular({ showAllFavorite }) {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const popularFoods = useSelector((state) => state.popular.data);
 
   const [showAll, setShowAll] = useState(false);
 
-    useEffect(() => {
-        dispatch(fetchPopular());
+  useEffect(() => {
+    dispatch(fetchPopular());
+  }, []);
 
-    }, []);
+  if (popularFoods?.isLoading) {
+    return <div>Loading....</div>;
+  }
+  let visibleElements = [];
 
-
-    if(popularFoods.isLoading){
-        return <div>Loading....</div>
-    }
-    let visibleElements=[]
-
-    if(!popularFoods.isLoading) visibleElements = showAll ? popularFoods : popularFoods.slice(0, 4);
-
+  if (!popularFoods?.isLoading)
+    visibleElements = showAll ? popularFoods : popularFoods?.slice(0, 4);
 
   return (
     <div className={styles.container}>
@@ -43,7 +41,7 @@ export default function Popular({ showAllFavorite }) {
         </div>
       </div>
       <div className={styles.wrapper}>
-        {visibleElements.map((menu) => {
+        {visibleElements?.map((menu) => {
           return <PopularCard key={menu.id} item={menu} />;
         })}
       </div>

@@ -1,5 +1,5 @@
 import { generateApiEndpoint } from "@/utils";
-import axios from "axios";
+import axios from "./client";
 
 export async function SignUpUser(user) {
   const url = generateApiEndpoint("users");

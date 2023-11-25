@@ -1,30 +1,37 @@
 "use client";
-import {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 
 import styles from "./popular.module.css";
 
 import RecentOrdersCard from "@/components/recent/recentCard/";
 import Arrow from "@/public/assets/img/chevron-down.png";
-import {fetchRecentOrders} from "@/redux/slices/recentOrderSlice";
+import { fetchRecentOrders } from "@/redux/slices/recentOrderSlice";
+import { useSession } from "next-auth/react";
 
 export default function RecentOrders() {
+  const session = useSession();
   const recentOrders = useSelector((state) => state.recentOrder.data);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [showAll, setShowAll] = useState(false);
 
-    useEffect(() => {
-        dispatch(fetchRecentOrders())
-    }, []);
+  useEffect(() => {
+    dispatch(fetchRecentOrders());
+  }, []);
 
-    if(recentOrders.isLoading){
-        return <div>Loading....</div>
-    }
+  if (recentOrders?.isLoading) {
+    return <div>Loading....</div>;
+  }
 
-    let visibleElements=[]
+  let visibleElements = [];
 
-    if(!recentOrders.isLoading) visibleElements = showAll ? recentOrders : recentOrders.slice(0, 3);
+  if (!recentOrders?.isLoading)
+    visibleElements = showAll ? recentOrders : recentOrders?.slice(0, 3);
+
+  console.log(session);
+
+  if (session.status === "unauthenticated") return null;
 
   return (
     <div className={styles.container}>
@@ -38,7 +45,7 @@ export default function RecentOrders() {
         </div>
       </div>
       <div className={styles.wrapper}>
-        {visibleElements.map((menu) => {
+        {visibleElements?.map((menu) => {
           return <RecentOrdersCard key={menu.id} item={menu} />;
         })}
       </div>

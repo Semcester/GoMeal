@@ -19,8 +19,8 @@
 }
 
 .activeContainer{
-    width: 114px;
-    height: 114px;
+    width: 136px;
+    height: 124px;
     display: flex;
     flex-direction: column;
     align-items: center;
