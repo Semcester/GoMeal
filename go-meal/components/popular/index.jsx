@@ -25,7 +25,7 @@ export default function Popular({ showAllFavorite }) {
   let visibleElements = [];
 
   if (!popularFoods?.isLoading)
-    visibleElements = showAll ? popularFoods : popularFoods?.slice(0, 4);
+    visibleElements = showAll ? popularFoods : popularFoods.slice(0, 4);
 
   return (
     <div className={styles.container}>

@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+    margin-top: 32px;
 }
 .form{
     width: 50%;
@@ -20,9 +21,9 @@
     gap: 20px;
 }
 .form input{
-    height: 32px;
+    height: 22px;
     border-radius: 8px;
-    border: 1px solid  #F8B602;
+    border: 1px solid #F8B602;
     padding: 5px 0 5px 10px;
 }
 .savaBtn{

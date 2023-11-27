@@ -17,7 +17,7 @@
 .actions,.street{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap:8px;
 }
@@ -53,4 +53,8 @@
     color:#FFFFFF;
     box-shadow: #6e6b75 0px 2px 2px 0px;
     transition: 0.3s ease;
+}
+.adressContainer{
+    display: flex;
+    flex-direction: column;
 }

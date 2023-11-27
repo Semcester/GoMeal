@@ -6,12 +6,11 @@ import { SessionProvider } from "next-auth/react";
 
 import GoTopComponent from "@/components/goTop";
 import SideBar from "@/components/sidebar";
-import Search from "@/components/Search/page";
 import Advertise from "@/components/advertise";
 import RightsideBar from "@/components/rightsideBar";
-import Login from "@/components/login";
 import Modal from "@/components/Modal";
-import {SkeletonTheme} from "react-loading-skeleton";
+import { SkeletonTheme } from "react-loading-skeleton";
+import Header from "@/components/Header/page";
 
 export default function Layout({ children }) {
   return (
@@ -21,15 +20,14 @@ export default function Layout({ children }) {
         <Provider store={store}>
           <div className={"main-container"}>
             <SkeletonTheme baseColor="#202020" highlightColor="#444">
-            <Modal />
-            <SideBar />
-            <div className={"main-wrapper"}>
-              <Search />
-              <Advertise />
-
-              {children}
-            </div>
-            <RightsideBar />
+              <Modal />
+              <SideBar />
+              <div className={"main-wrapper"}>
+                <Header />
+                <Advertise />
+                {children}
+              </div>
+              <RightsideBar />
             </SkeletonTheme>
           </div>
         </Provider>

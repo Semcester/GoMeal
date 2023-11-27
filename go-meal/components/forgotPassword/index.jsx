@@ -23,7 +23,6 @@ export default function ForgotPassword() {
     },
     validationSchema: forgotPasswordSchema,
     onSubmit: (values) => {
-      console.log(values, "FORGOT");
       setIsLoading(true);
       setErrorForgot(false);
       const response = authService.ForgotPassword(values);

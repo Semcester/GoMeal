@@ -35,7 +35,7 @@ const popularSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(fetchPopular.fulfilled, (state, action) => {
-      state.data = action.payload.data;
+      state.data = action.payload.data.data;
       state.isLoading = false;
     });
     builder.addCase(fetchPopular.rejected, (state) => {

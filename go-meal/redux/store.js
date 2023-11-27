@@ -1,7 +1,6 @@
 "use client";
 
-import {configureStore} from "@reduxjs/toolkit";
-
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 
 import categorySlice from "@/redux/slices/categorySlice";
 import popularSlice from "@/redux/slices/popularSlice";
@@ -12,8 +11,7 @@ import modalSlice from "@/redux/slices/modalSlice";
 import totalSlice from "@/redux/slices/totalSlice";
 import userSlice from "@/redux/slices/userSlice";
 import foodSlice from "@/redux/slices/foodSlice";
-
-
+import searchSlice from "@/redux/slices/searchSlice";
 
 export const store = configureStore({
   reducer: {
@@ -25,7 +23,10 @@ export const store = configureStore({
     modal: modalSlice,
     total: totalSlice,
     user: userSlice,
-    foods:foodSlice,
-
+    foods: foodSlice,
+    searchInput: searchSlice,
   },
+  middleware: getDefaultMiddleware({
+    serializableCheck: false,
+  }),
 });

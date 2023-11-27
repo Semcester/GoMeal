@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from "@/services/client";
 import { generateApiEndpoint } from "@/utils";
 import { foodMock } from "@/mockData/foodMock";
 
@@ -16,16 +16,21 @@ const foodsSlice = createSlice({
   initialState: {
     isLoading: false,
     data: [],
+    filteredFoodsByInput: [],
     isError: false,
     isMockData: false,
   },
-  reducers: {},
+  reducers: {
+    filterByInput: (state, action) => {
+      state.filterByInput = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchFoods.pending, (state) => {
       state.isLoading = true;
     });
     builder.addCase(fetchFoods.fulfilled, (state, action) => {
-      state.data = action.payload.data;
+      state.data = action.payload.data.data;
 
       state.isLoading = false;
     });
@@ -38,5 +43,5 @@ const foodsSlice = createSlice({
   },
 });
 
-export const {} = foodsSlice.actions;
+export const { filterByInput } = foodsSlice.actions;
 export default foodsSlice.reducer;

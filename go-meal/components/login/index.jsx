@@ -6,7 +6,6 @@ import { useFormik } from "formik";
 
 import { useDispatch } from "react-redux";
 import { closeModal, openModal } from "@/redux/slices/modalSlice";
-import { userLogin } from "@/redux/slices/userSlice";
 
 import { loginSchema } from "@/schemas";
 import { authService } from "@/services";

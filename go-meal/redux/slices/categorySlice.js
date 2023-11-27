@@ -36,7 +36,7 @@ const categorySlice = createSlice({
           name: "all-food",
           isAll: true,
         },
-        ...action.payload.data,
+        ...action.payload.data.data,
       ];
       state.isLoading = false;
     });

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 
 import styles from "./sidebar.module.css";
 
@@ -10,10 +10,17 @@ import { Home, FoodOrder, Favorite, OrderHistory } from "@/components/icons";
 import Settings from "@/public/assets/icons/Setting.svg";
 import Logo from "@/public/assets/icons/GoMeal..png";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 export default function SideBar() {
+  const session = useSession();
+
   const [activeTab, setActiveTab] = useState("");
   const pathname = usePathname();
+
+  if (pathname === "/settings" && session.status === "unauthenticated") {
+    redirect("/");
+  }
 
   return (
     <div className={styles.container}>
@@ -65,17 +72,19 @@ export default function SideBar() {
                 <span>Order History</span>
               </li>
             </Link>
-            <Link href={"/settings"} style={{ textDecoration: "none" }}>
-              <li
-                onClick={() => setActiveTab("/settings")}
-                className={pathname === "/settings" ? styles.active : ""}
-              >
-                <div className={activeTab ? styles.active : styles.icon}>
-                  <Settings />
-                </div>
-                <span>Settings</span>
-              </li>
-            </Link>
+            {session.status === "authenticated" && (
+              <Link href={"/settings"} style={{ textDecoration: "none" }}>
+                <li
+                  onClick={() => setActiveTab("/settings")}
+                  className={pathname === "/settings" ? styles.active : ""}
+                >
+                  <div className={activeTab ? styles.active : styles.icon}>
+                    <Settings />
+                  </div>
+                  <span>Settings</span>
+                </li>
+              </Link>
+            )}
           </ul>
         </div>
       </div>

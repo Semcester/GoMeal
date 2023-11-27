@@ -26,7 +26,7 @@ const recentOrderSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(fetchRecentOrders.fulfilled, (state, action) => {
-      state.data = action.payload.data;
+      state.data = action.payload.data.data;
       state.isLoading = false;
     });
     builder.addCase(fetchRecentOrders.rejected, (state) => {

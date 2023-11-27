@@ -20,16 +20,14 @@ export default function RecentOrders() {
     dispatch(fetchRecentOrders());
   }, []);
 
-  if (recentOrders?.isLoading) {
+  if (recentOrders.isLoading) {
     return <div>Loading....</div>;
   }
 
   let visibleElements = [];
 
-  if (!recentOrders?.isLoading)
+  if (!recentOrders.isLoading)
     visibleElements = showAll ? recentOrders : recentOrders?.slice(0, 3);
-
-  console.log(session);
 
   if (session.status === "unauthenticated") return null;
 
@@ -45,7 +43,7 @@ export default function RecentOrders() {
         </div>
       </div>
       <div className={styles.wrapper}>
-        {visibleElements?.map((menu) => {
+        {visibleElements.map((menu) => {
           return <RecentOrdersCard key={menu.id} item={menu} />;
         })}
       </div>

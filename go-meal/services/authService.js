@@ -1,7 +1,7 @@
 "use client";
 import { signIn } from "next-auth/react";
 import { generateApiEndpoint } from "@/utils";
-import axios from "./client";
+import axios from "axios";
 export async function Login(payload) {
   return await signIn("credentials", {
     email: payload.email,

@@ -25,10 +25,10 @@ export default function Signup() {
       },
       validationSchema: SignupSchema,
       onSubmit: (values) => {
+        console.log("BURADAYIZ", values);
         setIsSuccess(true);
         SignUpUser(values)
           .then((resp) => {
-            console.log(resp);
             if (resp.status === 204) {
               toast.success("User created succesfully 🚀 ");
               setTimeout(() => {
